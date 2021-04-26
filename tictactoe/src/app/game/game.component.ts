@@ -1,14 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface IColumn {
-  position: number,
-  value: string
-}
-
-interface IRow {
-  position: number,
-  columns: IColumn[]
-}
+import {IRow, IColumn} from 'src/models/Game';
 
 @Component({
   selector: 'app-game',
@@ -68,18 +59,21 @@ export class GameComponent implements OnInit {
 
     this.rows[row].columns[column].value = mark;
 
-    let winner = this.checkWinner();
-    if(winner) {
-      const winnerName = winner === 'X' 
-        ? 'Player 1'
-        : 'Player 2';
+    setTimeout(() => {
+      let winner = this.checkWinner();
+      if(winner) {
+        const winnerName = winner === 'X' 
+          ? 'Player 1'
+          : 'Player 2';
+          
+        alert(winnerName + ', você venceu!!');
         
-      alert(winnerName + ', você venceu!!');
-      
-      this.initGame();
-    } else {
-      this.changePlayer();
-    }
+        this.initGame();
+      } else {
+        this.changePlayer();
+      }
+
+    }, 100);
   }
 
   checkWinner(): string {

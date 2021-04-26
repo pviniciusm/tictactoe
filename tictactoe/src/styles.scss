@@ -1,17 +1,4 @@
-/*
-cinza: 50514F
-vermelho: F25F5C
-amarelo: FFE066
-azul: 247BA0
-azul fraco: 70C1B3
-*/
-$primary-gray: #50514F;
-$primary-red: #F25F5C;
-$primary-yellow: #FFE066;
-$primary-blue: #247BA0;
-$secondary-blue: #70C1B3;
-
-$background-white: whitesmoke;
+@import './colors.scss';
 
 * {
   margin: 0;
@@ -20,7 +7,7 @@ $background-white: whitesmoke;
 
 html, body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0;
   overflow-y: hidden;  
   
@@ -42,117 +29,41 @@ html, body {
 .header {  
   height: 68px;
   width: 100%;
-  background-color: #50514F;
-  color: whitesmoke;
+  background-color: $primary-red;
+  color: #fff;
 
-  font-family: 'Bangers';
-}
+  font-family: $font-start, 'Bangers';
 
-.header .wrapper {
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  
-  padding: 0 12px;
+  .wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    overflow-y: auto;
+    
+    padding: 0 12px;
+  }
 }
 
 .body {
-  background-color: whitesmoke;
-  flex: 1;
-  overflow-y: auto;
-}
-
-.body .wrapper {
-  padding: 30px 18px;
-}
-
-.game-wrapper {
-  margin-top: 20px;
-}
-
-.card {
-  background-color: white;
-  box-shadow: #ccc 2px 3px 10px;
-  border-radius: 8px;
-  padding: 10px 20px;  
-  flex: .5;
-  min-width: 120px;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-
-.game-info {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-evenly;
+
+  flex: 1;
+  background-color: whitesmoke;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: $primary-yellow;
+  }
 }
 
 .game-wrapper {
-  background-color: #247BA0;
-  color: white;
+  background-color: #FAD050;
+  color: $primary-gray;
   padding: 20px;
   min-width: 260px;
-}
-
-.tictac-wrapper {
-  margin-top: 20px;
-  background-color: #50514F;
-  border-radius: 6px;
-  padding: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.row {
-  color: #333;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  .column.marked-x {
-    background-color: $secondary-blue !important;
-    color: whitesmoke !important;
-    cursor: not-allowed;
-  }
-  .column.marked-o {
-    background-color: $primary-blue !important;
-    color: whitesmoke !important;
-    cursor: not-allowed;
-  }
-}
-
-.column {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  flex: 1;
-  text-align: center;
-  height: 90px;
-  background-color: whitesmoke;
-  cursor: pointer;
-  color: $primary-blue;
-  
-
-  &:hover {
-    background-color: $primary-gray;
-    color: whitesmoke;
-  }
-}
-
-.row:nth-child(n+1) .column:nth-child(1),
-.row:nth-child(n+1) .column:nth-child(2)
-{
-  border-right:1px solid $primary-gray;
-}
-
-.row:nth-child(1) .column:nth-child(n+1),
-.row:nth-child(2) .column:nth-child(n+1)
-{
-  border-bottom:1px solid $primary-gray;
 }
