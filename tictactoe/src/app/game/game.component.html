@@ -1,0 +1,11 @@
+<h4>É a sua vez, Player {{playerTurn}}, seu idiota!</h4>
+
+<div class="tictac-wrapper">
+  <div class="row" *ngFor="let row of rows">
+    <div class="column" *ngFor="let column of row.columns"
+      [ngClass]="[column.value === 'X' ? 'marked-x' : '', column.value === 'O' ? 'marked-o' : '']"
+      (click)="markCloumn(row.position, column.position)">
+      <p class="mark">{{column.value}}</p>
+    </div>
+  </div>
+</div>
